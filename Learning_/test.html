@@ -14,23 +14,38 @@
 </body>
 </html>
 <script type="text/babel">
+    function Postitem({img, title, description, publishedAt}) {
+        return(
+            <div className="post-item">
+                <img src={img} alt=""/>
+                <h2 className="post-title">{title}</h2>
+                <p className="post-desc">{description}</p>
+                <p className="post-published">{publishedAt}</p>
+            </div>
+        );
+    }
+
+    function App() {
+        return (
+            <div className="posts-list">
+                <Postitem 
+                    title='Một số "cẩm nang" hay khi làm việc với HTML/CSS😂'
+                    img="https://files.fullstack.edu.vn/f8-prod/blog_posts/7924/64a2487459fe5.jpg"
+                    description="Bài viết này đơn giản là nơi để mình lưu lại những kinh nghiệm mình đã làm việc với HTML/CSS cũng như chia sẻ phần nào cho bạn..."
+                    publishedAt="một ngày trước · 4 phút đọc"
+                />
+                <Postitem 
+                    title='"Kết nối trước" với preconnect, prefetch để làm gì?'
+                    img="https://files.fullstack.edu.vn/f8-prod/blog_posts/7922/64a23b234c52e.png"
+                    description='"Kết nối trước" với preconnect, prefetch để làm gì?'
+                    publishedAt="2 ngày trước · 3 phút đọc"
+                />
+            </div>
+        );
+    }
+
     const rootElement = document.getElementById('app');
+    const root = ReactDOM.createRoot(rootElement);
 
-    const ReactElement = React.createElement(
-        'h1', 
-        { 
-            title: 'hello', 
-            className: 'h1-class' 
-        }, 
-        'Hello anh em'
-    );
-
-    const jsx = (
-        <h1 title="Hello" className="h1-class">
-            Hello Anh EM
-        </h1>
-    )
-
-    const rootDOM = ReactDOM.createRoot(rootElement);
-    rootDOM.render(ReactElement)
+    root.render(<App/>);
 </script>
