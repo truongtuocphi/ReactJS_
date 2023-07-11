@@ -22,7 +22,7 @@
         React.createElement('h2', { title: 'Học React tại F8' }, 'Học ReactJS'),    
         React.createElement('p', null, "Học React Cơ bản"),
     );
-
+    
     const course = [
         { name: 'HTML, CSS' },
         { name: 'Responsive web design' },
@@ -32,12 +32,12 @@
     const ulReact = 
     <ul>
         {
-            course.map((items, index)  => {
+            course.map((items, index) => {
                 return <li key={index}>{items.name}</li>
             })
         }
     </ul>
-
+    
     const headingReact = 
         <React.Fragment>
             <h1>Headding 1</h1>
