@@ -31,22 +31,23 @@ class App extends Component {
     }, 2000);
   }
 
-    render() {
-      if (this.state.loading) {
-        return <Spinner text="Please accept location request" />;
-      }
-
-      if (this.state.errorMessage && !this.state.lat) {
-        return <div>Error: {this.state.errorMessage}</div>
-      }
-      if (!this.state.errorMessage && this.state.lat) {
-        return <SeasonDisplay lat={this.state.lat} />
-      }
-
-      return (
-        <Spinner text="Please accept location request" />
-      );
+  render() {
+    if (this.state.loading) {
+      return <Spinner text="Please accept location request" />;
     }
+
+    if (this.state.errorMessage && !this.state.lat) {
+      return <div>Error: {this.state.errorMessage}</div>
+    }
+    
+    if (!this.state.errorMessage && this.state.lat) {
+      return <SeasonDisplay lat={this.state.lat} />
+    }
+
+    return (
+      <Spinner text="Please accept location request" />
+    );
   }
+}
 
 export default App;
