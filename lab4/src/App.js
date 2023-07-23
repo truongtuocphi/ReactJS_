@@ -24,10 +24,10 @@ export default class App extends Component {
       <div>
         <Search onSubmit={this.onSearchSubmit} />
         {/* Found: { this.state.image.length } images */}
-        <div className='container px-20 grid mx-auto gap-2 grid-cols-4'>
+        <div className='container px-[7%] mx-auto columns-3'>
           { this.state.image.map((items, index) => (
-            <div key={index} className=''>
-              <img className='rounded-lg h-full'  src={items.urls.regular} alt="" />
+            <div key={index} className='flex mb-4'>
+              <img className='rounded-lg'  src={items.urls.regular} alt="" />
             </div>
           )) }
         </div>
