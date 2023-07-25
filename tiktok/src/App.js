@@ -18,9 +18,10 @@ const course = [
 
 function App() {
   const [ name, setName ] = useState([]);
-  console.log(name);
+  // console.log(name);
   const handleCheck = (id) => {
     setName((prev) => {
+      // console.log(`prev: ${prev}`);
       const isCheck = name.includes(id)
       if(isCheck){
         return name.filter(item => item !== id);
