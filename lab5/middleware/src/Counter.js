@@ -14,7 +14,7 @@ function Counter({ count, dispatch }) {
 }
 
 const mapStateToProps = (state) => ({
-    count: state.count
+  count: state.count
 })
 
 export default connect(mapStateToProps)(Counter);
