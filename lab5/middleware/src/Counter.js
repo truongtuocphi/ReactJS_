@@ -6,9 +6,9 @@ function Counter({ count, dispatch }) {
   return (
     <div>
         <h1>{ count }</h1>
-        <button onClick={() => dispatch(decrement())}>-</button>
-        <button onClick={() => dispatch(increment())}>+</button>
-        <button onClick={() => dispatch(reset())}>Reset</button>
+        <button onClick={() => dispatch(decrement())} style={{padding: '5px 20px'}}>-</button>
+        <button onClick={() => dispatch(increment())} style={{padding: '5px 20px'}}>+</button>
+        <button onClick={() => dispatch(reset())} style={{padding: '5px 20px'}}>Reset</button>
     </div>
   )
 }
