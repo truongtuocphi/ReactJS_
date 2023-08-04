@@ -15,15 +15,17 @@ function App() {
   return (
     <>
       <Header />
-      <div className='flex min-w-screen relative top-[68px]'>
-        <Menu />
-        <div className='w-full max-w-screen-page h-72 px-5 mt-5 absolute right-0'>
+      <div className='flex min-w-screen'>
+        <div className='sticky top-[74px] z-30'>
+          <Menu />
+        </div>
+        <div className='w-full max-w-screen-page px-5 mt-5 relative'>
           <Routes>
-            <Route path="/" element={ <Home /> } />
-            <Route path="/learning-path" element={ <LearningPath /> } />
-            <Route path="/learn" element={ <Learn /> } />
-            <Route path="/blog" element={ <Blog /> } />
-            <Route path="/course-detail" element={ <CourseDetail  /> } />
+            <Route path="/" element={<Home />} />
+            <Route path="/learning-path" element={<LearningPath />} />
+            <Route path="/learn" element={<Learn />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/course-detail" element={<CourseDetail />} />
           </Routes>
         </div>
       </div>

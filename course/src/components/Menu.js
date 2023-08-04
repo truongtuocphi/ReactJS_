@@ -13,7 +13,7 @@ const ListMenu = [
 
 export default function Menu() {
   return (
-    <div className='w-24 h-screen fixed flex flex-col items-center pt-3 px-2 z-10 bg-white'>
+    <div className='w-24 sticky top-[68px] flex flex-col items-center pt-3 px-2 bg-white'>
       <div className='mt-2 bg-blue-600 w-11 h-11 rounded-full items-center flex justify-center'>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" strokeWidth={2} stroke="#ffff" className="w-6 h-6">
           <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />

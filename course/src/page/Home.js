@@ -1,7 +1,6 @@
 import React from 'react'
-import Course from '../components/Course';
+import ListElement from '../components/ListElement';
 import { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
@@ -11,7 +10,7 @@ import 'swiper/css/navigation';
 
 import '../style.css'
 
-import { Pagination, Navigation } from 'swiper/modules'
+import { Autoplay, Pagination, Navigation } from 'swiper/modules'
 
 const listBanner = [
   {
@@ -42,28 +41,41 @@ const listBanner = [
 
 export default function Home() {
   const [ data, setData ] = useState([]);
+  const [ dataBlog, setDataBlog ] = useState([]);
 
-  const url = "http://localhost:8000/Course";
+  const urlCourse = "http://localhost:8000/Course";
+  const urlBlog = "http://localhost:8000/Blog";
+
   useEffect(() => {
-    fetch(url)
+    fetch(urlCourse)
     .then(response => response.json())
     .then(json => {
       setData(json);
+    })
+
+    fetch(urlBlog)
+    .then(response => response.json())
+    .then(json => {
+      setDataBlog(json);
     })
     .catch(e => console.log("Error: ", e))
   }, [])
 
   return (
-    <>
+    <div>
       <Swiper
         slidesPerView={1}
         spaceBetween={30}
         loop={true}
+        autoplay={{
+          delay: 2000,
+          disableOnInteraction: false,
+        }}
         pagination={{
           clickable: true,
         }}
         navigation={true}
-        modules={[Pagination, Navigation]}
+        modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
       >
         {listBanner.map(items => (
@@ -81,20 +93,14 @@ export default function Home() {
           </SwiperSlide>
         ))}
       </Swiper>
-      <div className='mt-20 px-11 pb-20'>
-        <div className='mb-5'>
-          <h2 className='text-neutral-800 text-2xl font-extrabold'>Khóa học miễn phí</h2>
-        </div>
-        <div className='grid grid-cols-4 gap-7'>
-          {data.map(items => (
-            <div key={items.id} className='col-span-1'>
-              <NavLink to='/course-detail'>
-                <Course title={items.title} imgCourse={items.img} />
-              </NavLink>
-            </div>
-          ))}
-        </div>
+      {/* page list course */}
+      <div className='w-full h-fit, mt-20'>
+        <ListElement title="Khóa học miễn phí" dataElement={data} />
       </div>
-    </>
+      {/* page BLog */}
+      <div>
+        <ListElement title="Bài viết nổi bật" dataElement={dataBlog} />
+      </div>
+    </div>
   )
 }
