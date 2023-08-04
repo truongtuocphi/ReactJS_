@@ -3,7 +3,7 @@ import logo from '../logo.png'
 
 export default function Header() {
   return (
-    <header className='w-full fixed z-20 bg-white px-10 py-3 grid grid-cols-4 content-center border-b-2'>
+    <header className='w-full fixed z-20 bg-white px-10 py-3 grid grid-cols-4 content-center shadow-sm'>
         <div className='col-span-1 flex items-center gap-2'>
             <img src={ logo } alt={ logo } />
         </div>
