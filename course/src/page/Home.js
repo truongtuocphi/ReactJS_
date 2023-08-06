@@ -95,11 +95,11 @@ export default function Home() {
       </Swiper>
       {/* page list course */}
       <div className='w-full h-fit, mt-20'>
-        <ListElement title="Khóa học miễn phí" dataElement={data} />
+        <ListElement title="Khóa học miễn phí" dataElement={data} router='/course-detail' />
       </div>
       {/* page BLog */}
       <div>
-        <ListElement title="Bài viết nổi bật" dataElement={dataBlog} />
+        <ListElement title="Bài viết nổi bật" dataElement={dataBlog} router='/blog-detail' />
       </div>
     </div>
   )

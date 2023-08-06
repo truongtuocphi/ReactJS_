@@ -2,7 +2,7 @@ import React from 'react'
 import Course from '../components/Course';
 import { NavLink } from 'react-router-dom'
 
-export default function ListElement({ title, dataElement }) {
+export default function ListElement({ title, dataElement, router }) {
     return (
         <div className='w-full mt-0 px-11 pb-20'>
             <div className='mb-5'>
@@ -11,7 +11,7 @@ export default function ListElement({ title, dataElement }) {
             <div className='grid grid-cols-4 gap-7'>
                 {dataElement.map(items => (
                     <div key={items.id} className='col-span-1'>
-                        <NavLink to='/course-detail'>
+                        <NavLink to={`${router}/${items.id}`}>
                             <Course title={items.title} imgCourse={items.img} />
                         </NavLink>
                     </div>

@@ -9,6 +9,7 @@ import Footer from './components/Footer';
 import Learn from './page/Learn';
 import LearningPath from './page/LearningPath';
 import CourseDetail from './page/CourseDetail';
+import BlogDetail from './page/BlogDetail';
 import Blog from './page/Blog';
 
 function App() {
@@ -25,7 +26,8 @@ function App() {
             <Route path="/learning-path" element={<LearningPath />} />
             <Route path="/learn" element={<Learn />} />
             <Route path="/blog" element={<Blog />} />
-            <Route path="/course-detail" element={<CourseDetail />} />
+            <Route path="/course-detail/:id" element={<CourseDetail />} />
+            <Route path="/blog-detail" element={<BlogDetail />} />
           </Routes>
         </div>
       </div>

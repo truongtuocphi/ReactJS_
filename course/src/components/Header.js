@@ -1,11 +1,14 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import logo from '../logo.png'
 
 export default function Header() {
   return (
     <header className='w-full sticky top-0 z-40 bg-white px-10 py-3 grid grid-cols-4 content-center shadow-sm'>
         <div className='col-span-1 flex items-center gap-2'>
-            <img src={ logo } alt={ logo } />
+            <Link to="/">
+                <img src={ logo } alt={ logo } />
+            </Link>
         </div>
         <div className='col-span-2 w-full flex bg-gray-100 px-5 py-2 rounded-full'>
             <input className='bg-gray-100 border-none outline-none w-full text-lg text-slate-500' placeholder='Tìm kiếm khóa học, bài học...' />
