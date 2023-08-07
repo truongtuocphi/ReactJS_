@@ -164,5 +164,19 @@
             "nameUser": "Nguyễn Sơn",
             "id": 8
         }
+    ],
+    "user": [
+        {  
+            "email": "truongphi754@gmail.com",
+            "pass": "123",
+            "name": "Trương Phi", 
+            "id": "truongphi754@gmail.com"
+        },
+        {  
+            "email": "admin@gmail.com",
+            "pass": "123",
+            "name": "Admin", 
+            "id": "admin@gmail.com"
+        }
     ]
 }
