@@ -14,21 +14,28 @@ import CourseDetail from './page/CourseDetail';
 import BlogDetail from './page/BlogDetail';
 import Blog from './page/Blog';
 import Login from './page/Login';
+import Admin from './admin/Admin';
+import From from './components/From';
+import Edit from './components/Edit'
 
 function App() {
-  const [check, setCheck] = useState(false)
+  const [check, setCheck] = useState(false);
+  const [checkAdmin, setCheckAdmin] = useState(false)
+
   const isLoginPage = window.location.href.split('/')[3] === 'login';
-  
+  const isAdminPage = window.location.href.split('/')[3] === 'admin';
+  // console.log(isAdminPage);
   useEffect(() => {
     setCheck(isLoginPage);
-  }, [isLoginPage])
+    setCheckAdmin(isAdminPage);
+  }, [isLoginPage, isAdminPage])
 
   return (
     <>
-      {!check ? <Header /> : null}
+      {!check ? <Header checkAdmin={checkAdmin} /> : null}
       <div className='flex min-w-screen'>
         <div className='sticky top-[74px] z-30'>
-        {!check ? <Menu /> : null}
+        {!check ? <Menu checkAdmin={checkAdmin} /> : null}
         </div>
         <div className={`w-full ${!check ? "max-w-screen-page" : ''} px-5 mt-5 relative`}>
           <Routes>
@@ -39,10 +46,13 @@ function App() {
             <Route path="/course-detail/:id" element={<CourseDetail />} />
             <Route path="/blog-detail" element={<BlogDetail />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/admin" element={<Admin />} />
+            <Route path="/admin/them" element={<From />} />
+            <Route path="/admin/edit/:id" element={<Edit />} />
           </Routes>
         </div>
       </div>
-      {!check ? <Footer /> : null}
+      {!check ? <Footer checkAdmin={checkAdmin} /> : null}
     </>
   );
 }

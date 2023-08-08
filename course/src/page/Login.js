@@ -20,11 +20,19 @@ export default function Login() {
                             window.location.href='/'
                         }, 1000)
                         toast.success("Đăng nhập thành công");
+                        localStorage.setItem('user', 'Login')
                     }else {
-                        toast.error("Đăng nhập thất bại");
+                        toast.error("Đăng nhập thất bại", resp.email);
                     }
                 }else {
                     toast.error("Đăng nhập thất bại");
+                }
+
+                if(resp.email === 'admin@gmail.com' && resp.pass === '123') {
+                    setTimeout(() => {
+                        window.location.href='/admin'
+                    }, 1000)
+                    localStorage.setItem('user', 'Login')
                 }
             })
             .catch((err) => err);
