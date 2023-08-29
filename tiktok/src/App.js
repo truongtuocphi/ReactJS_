@@ -1,48 +1,48 @@
-import './App.css';
-import { useState } from 'react';
+import "./App.css";
+import { useState } from "react";
 
 const course = [
   {
     id: 1,
-    name: 'JavaScript'
+    name: "JavaScript",
   },
   {
     id: 2,
-    name: 'ReactJS'
+    name: "ReactJS",
   },
   {
     id: 3,
-    name: 'Angular'
+    name: "Angular",
   },
-]
+];
 
 function App() {
-  const [ name, setName ] = useState([]);
+  const [name, setName] = useState([]);
   // console.log(name);
   const handleCheck = (id) => {
     setName((prev) => {
       // console.log(`prev: ${prev}`);
-      const isCheck = name.includes(id)
-      if(isCheck){
-        return name.filter(item => item !== id);
-      }else {
+      const isCheck = name.includes(id);
+      if (isCheck) {
+        return name.filter((item) => item !== id);
+      } else {
         return [...prev, id];
       }
     });
-  }
+  };
 
   const handleSubmit = () => {
-    console.log({id: name});
-  }
+    console.log({ id: name });
+  };
 
   return (
-    <div className="App" style={{paddingTop: '10px'}}>
-      {course.map(course => (
+    <div className="App" style={{ paddingTop: "10px" }}>
+      {course.map((course) => (
         <div key={course.id}>
-          <input 
-            type='checkbox' 
-            checked={name.includes(course.id)} 
-            onChange={() => handleCheck(course.id)} 
+          <input
+            type="checkbox"
+            checked={name.includes(course.id)}
+            onChange={() => handleCheck(course.id)}
           />
           {course.name}
         </div>
